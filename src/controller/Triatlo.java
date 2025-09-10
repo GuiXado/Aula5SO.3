@@ -12,6 +12,8 @@ public class Triatlo extends Thread {
 	private int pontCiclismo;
 	private int pontTotal;
     public static int[] resultados = new int[25];
+	private static Semaphore semaforoCorrida = new Semaphore(1);
+	private static Semaphore semaforoCiclismo = new Semaphore(1);
 	
 	public Triatlo(int id, Semaphore semaforo) {
 		this.id = id;
@@ -92,4 +94,5 @@ public class Triatlo extends Thread {
 	}
 	
 }
+
 
