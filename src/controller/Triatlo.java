@@ -45,8 +45,15 @@ public class Triatlo extends Thread {
 				e.printStackTrace();
 			} 
 		}
-		pontChegadaCorrida -= 10;
-		pontCorrida = pontChegadaCorrida;
+		try {
+			semaforoCorrida.acquire();
+			pontChegadaCorrida -= 10;
+			pontCorrida = pontChegadaCorrida;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			semaforoCorrida.release();
+		}	
 	}
 
 	private int pontTiro = 0;
@@ -60,15 +67,22 @@ public class Triatlo extends Thread {
 		int distCiclismo = 0;
 		int distTotalC = 5000;
 		while (distCiclismo <= distTotalC) {
-		distCiclismo += (int)((Math.random() *11 ) + 30);
+			distCiclismo += (int)((Math.random() *11 ) + 30);
 			try {
 				sleep(40);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		pontChegadaCiclismo -= 10;
-		pontCiclismo = pontChegadaCiclismo;
+		try {
+			semaforoCiclismo.acquire();
+			pontChegadaCiclismo -= 10;
+			pontCiclismo = pontChegadaCiclismo;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			semaforoCiclismo.release();
+		}
 	}
 	
 	private void total() {
@@ -78,3 +92,4 @@ public class Triatlo extends Thread {
 	}
 	
 }
+
