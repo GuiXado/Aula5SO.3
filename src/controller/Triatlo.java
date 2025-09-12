@@ -40,7 +40,7 @@ public class Triatlo extends Thread {
 		int distCorrida = 0;
 		int distTotal = 3000;
 		while (distCorrida <= distTotal) {
-			distCorrida += (int)((Math.random() *6 ) + 20);
+			distCorrida += (int)((Math.random() * 6) + 20);
 			try {
 				sleep(30);
 			} catch (InterruptedException e) {
@@ -69,7 +69,7 @@ public class Triatlo extends Thread {
 		int distCiclismo = 0;
 		int distTotalC = 5000;
 		while (distCiclismo <= distTotalC) {
-			distCiclismo += (int)((Math.random() *11 ) + 30);
+			distCiclismo += (int)((Math.random() * 11) + 30);
 			try {
 				sleep(40);
 			} catch (InterruptedException e) {
@@ -94,5 +94,6 @@ public class Triatlo extends Thread {
 	}
 	
 }
+
 
 
