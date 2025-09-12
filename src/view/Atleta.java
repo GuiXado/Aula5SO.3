@@ -32,6 +32,16 @@ public class Atleta {
 			}
 		}
 
+		/*for (int i = 0; i < 25; i++) {
+			for (int j = 0; j < 25 - 1 - i; j++) {
+				if (Triatlo.resultados[j] < Triatlo.resultados[j + 1]) {
+					int temp = Triatlo.resultados[j];
+					Triatlo.resultados[j] = Triatlo.resultados[j + 1];
+					Triatlo.resultados[j + 1] = temp;
+				}
+			}
+		}*/
+
 		System.out.println("Resultados finais:");
 		for (int i = 0; i < 25; i++) {
 			System.out.println((i + 1) + "º lugar: " + Triatlo.resultados[i]);
@@ -40,3 +50,4 @@ public class Atleta {
 	}
 
 }
+
